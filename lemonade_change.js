@@ -1,6 +1,6 @@
-
+//For bills 5,10,20
 var lemonadeChange = function(bills) {
-    let fives = []
+    let fives = [] 
     let tens = []
 
     for(let i = 0; i < bills.length; i ++){
