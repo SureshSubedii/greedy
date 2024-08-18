@@ -19,9 +19,26 @@ let combined = rocks.map((rock, index) => [rock, capacity[index], (  capacity[in
             }
 
         }
-
         if (rocks[i] === capacity[i]) maxBags++
     }
     return maxBags
 
 };
+
+// Optimized Alternative
+
+var maximumBags = function (capacity, rocks, additionalRocks) {
+let output = 0
+for (let i in rocks) {
+    rocks[i] = capacity[i] - rocks[i]
+    output += rocks[i]
+}
+if (additionalRocks >= output) return rocks.length
+rocks.sort()
+output = 0
+for (let i in rocks) {
+    output += rocks[i]
+    if( output > additionalRocks) return i
+        
+}
+}
