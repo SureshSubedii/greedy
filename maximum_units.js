@@ -5,19 +5,16 @@
 // Return the maximum total number of units that can be put on the truck.
 
 var maximumUnits = function(boxTypes, truckSize) {
-    let totalSize = 0
     let maxUnits = 0
     boxTypes.sort((a,b) => b[1] - a[1])
    
     for(let i = 0; i < boxTypes.length;  i ++ ){
-         while(totalSize < truckSize && boxTypes[i][0]){
-            maxUnits += boxTypes[i][1] 
-            boxTypes[i][0] -= 1 
-            totalSize ++
-        }
+        let count = Math.min(boxTypes[i][0], truckSize)
+            maxUnits += count *  boxTypes[i][1] 
+            truckSize -= count 
+            if(  truckSize === 0) return maxUnits
 
     }
     return maxUnits
- 
     
 };
