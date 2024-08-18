@@ -34,7 +34,7 @@ for (let i in rocks) {
     output += rocks[i]
 }
 if (additionalRocks >= output) return rocks.length
-rocks.sort()
+rocks.sort((a,b) => a - b);
 output = 0
 for (let i in rocks) {
     output += rocks[i]
