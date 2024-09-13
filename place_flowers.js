@@ -3,13 +3,20 @@
 
 var canPlaceFlowers = function (flowerbed, n) {
     let total = flowerbed.length
+    let last = total - 1
 
     for (let i = 0; i < total; i++) {
         if (!n) break
+        let prev = flowerbed[i - 1]
+        let next = flowerbed[i + 1]
+        let current = flowerbed[i]
 
-        if ((flowerbed[i - 1] === 1 && (flowerbed[i + 1] ?? 1) === 1) && n && (i === total - 1)) return false
-        else if ((flowerbed[i - 1] ?? 0) === 0 && (flowerbed[i + 1] ?? 0) === 0 && flowerbed[i] === 0) { flowerbed[i] = 1; n-- }
+        if ((prev === 0 || prev === undefined) && (next === 0 || next === undefined) && current === 0) {
+            flowerbed[i] = 1
+            n--
+        }
+        else if ((prev === 1 || prev === undefined) && (next === 1 || next === undefined) && n && i === last) return false
 
     }
-    return n ? false : true
+    return n  === 0
 };
