@@ -8,12 +8,11 @@ var maxArea = function(height) {
     let left = 0
     let right = height.length - 1
     let area = 0
-    for(let i = 0; i < height.length; i ++){
-        if(left === right) break
+    while(left < right){
         let leftHeight = height[left]
         let rightHeight = height[right]
         let recHeight = Math.min(leftHeight, rightHeight)
-        let width = Math.abs(right - left)
+        let width = right - left
         area = Math.max(area, recHeight * width)
         if(leftHeight > rightHeight){
             right --
