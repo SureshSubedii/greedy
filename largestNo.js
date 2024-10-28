@@ -13,6 +13,6 @@ var largestNumber = function(nums) {
     return result[0] === '0' ? '0' : result;
     
 };
-console.log(largestNumber([20,99,151]))
+
 
 
