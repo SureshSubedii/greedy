@@ -42,3 +42,21 @@ for (let i in rocks) {
         
 }
 }
+
+// Revised
+var maximumBags = function (capacity, rocks, additionalRocks) {
+    let maxBags = 0
+    let underFilledBags = capacity.map((item, index) => {
+        let rock = item - rocks[index]
+        return rock
+
+    }).sort((a, b) => a - b)
+    for (let i = 0; i < underFilledBags.length; i++) {
+        additionalRocks -= underFilledBags[i]
+        if (additionalRocks < 0) break
+        maxBags++
+
+    }
+    return maxBags
+
+}
