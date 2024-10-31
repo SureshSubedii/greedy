@@ -21,4 +21,24 @@ function findContentChildren(greeds, cookies) {
     return contentChildren;
 }
 
+//Revision
+var findContentChildren = function(g, s) {
+    let satisfaction = 0
+    g.sort((a, b) => a - b)
+    s.sort((a, b) => a - b)
+    let greed = cookies = 0
+     
+    for(let i = 0; i  < s.length && satisfaction < g.length; i++){
+        if(s[cookies] >= g[greed]) {
+            satisfaction ++
+            greed ++
+            cookies ++ 
+            }
+            else {
+                cookies ++
+            }
+    }
+    return satisfaction
+    
+};
 
