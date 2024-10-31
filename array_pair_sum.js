@@ -8,3 +8,16 @@ var arrayPairSum = function(nums) {
     
     return sum
 };
+
+//Revised
+// var arrayPairSum = function(nums) {
+//     nums.sort((a,b) => a -b)
+//     let prev = 0
+
+//     for(let i = 0 ; i <  nums.length; i+= 2){
+//         prev += nums[i]
+//     }
+//     return prev
+
+    
+// };
